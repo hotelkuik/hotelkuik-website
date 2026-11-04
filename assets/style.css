@@ -351,3 +351,9 @@ details.inhoud .lijst{padding:2px 20px 18px;display:flex;flex-direction:column;g
   .site-nav{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:24px}
 }
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* prijs 3-gangendiner */
+.diner-kop{display:flex;justify-content:space-between;align-items:baseline;gap:8px 20px;flex-wrap:wrap;margin-bottom:14px}
+.diner-kop h2{margin-bottom:0!important}
+.diner-prijs{font-family:var(--display);font-size:clamp(1.6rem,3vw,2rem);color:var(--ossenbloed);font-variant-numeric:tabular-nums;line-height:1}
+.diner-prijs small{font-family:var(--body);font-size:.85rem;color:var(--muted)}
