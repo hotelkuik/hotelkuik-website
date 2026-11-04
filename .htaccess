@@ -1,0 +1,44 @@
+# Hotel Kuik - instellingen voor de webserver (Hostinger / Apache)
+
+RewriteEngine On
+
+# Altijd via https en met www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(hotelkuik\.nl)$ [NC]
+RewriteRule ^ https://www.%1%{REQUEST_URI} [R=301,L]
+
+# Oude adressen van de vorige website doorsturen naar de nieuwe pagina's
+RewriteRule ^(buffet-bestellen|koud-warm-buffetten)/?$ /buffetten/#koud-warm [R=301,L,NE]
+RewriteRule ^stamppot-buffetten/?$ /buffetten/#stamppot [R=301,L,NE]
+RewriteRule ^drentse-koffietafels/?$ /buffetten/#koffietafels [R=301,L,NE]
+RewriteRule ^ragout-buffetten/?$ /buffetten/#ragout [R=301,L,NE]
+RewriteRule ^high-tea-brunch/?$ /buffetten/#hightea [R=301,L,NE]
+RewriteRule ^pannenkoeken-buffetten/?$ /buffetten/#pannenkoeken [R=301,L,NE]
+RewriteRule ^dessert-buffetten/?$ /buffetten/#dessert [R=301,L,NE]
+
+RewriteRule ^arrangementen(/.*)?$ /overnachten/ [R=301,L]
+RewriteRule ^(slapen|luxe-suite|comfortkamer|faciliteiten)/?$ /overnachten/#kamers [R=301,L,NE]
+
+RewriteRule ^(diner|3-gangen-diner)/?$ /eten-drinken/ [R=301,L]
+RewriteRule ^afhaalmaaltijden/?$ /eten-drinken/#afhalen [R=301,L,NE]
+RewriteRule ^ontbijtservice/?$ /eten-drinken/#ontbijt [R=301,L,NE]
+
+RewriteRule ^(partijen|zalen|zakelijk|vergaderen)/?$ /partijen-vergaderen/ [R=301,L]
+RewriteRule ^fietsverhuur/?$ /omgeving/#fietsen [R=301,L,NE]
+
+RewriteRule ^(locatie|over-ons|veelgestelde-vragen|algemene-voorwaarden)/?$ /contact/ [R=301,L]
+RewriteRule ^(vacatures|zelfstandig-werkend-kok)/?$ /contact/#vacatures [R=301,L,NE]
+
+# Onbekende pagina: terug naar de homepage
+ErrorDocument 404 /
+
+# Snelheid: bestanden laten bewaren door de browser
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
