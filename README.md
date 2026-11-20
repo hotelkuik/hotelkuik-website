@@ -23,8 +23,10 @@ De website van Hotel Kuik, Brink 15, Ruinen. Aanpassingen worden gemaakt via Cla
 - `assets/site.js`: boekbalk, uitklappen, buffetformulier, kerstblok
 - `assets/img/`: foto's en logo. Op de pagina's staan WebP-versies (800 en 1400 breed); de jpg's blijven voor previews op sociale media
 - `assets/fonts/`: lettertypes Bree Serif en Source Sans 3 (staan op de eigen server, niet bij Google)
-- `verstuur.php`: stuurt buffetaanvragen per e-mail naar info@hotelkuik.nl
-- `.htaccess`: https, en doorverwijzingen van de adressen van de oude website
+- `verstuur.php`: stuurt buffetaanvragen per e-mail naar info@hotelkuik.nl. De namen en prijzen van de buffetten haalt het uit `buffetten/index.html` (de vinkjes in het formulier), dus een prijs wijzig je alleen daar. Maximaal 5 aanvragen per uur per bezoeker, tegen spam.
+- `404.html`: de pagina die bezoekers zien bij een adres dat niet bestaat
+- `assets/kaarten/`: de menukaarten als pdf (diner, lunch, pannenkoeken). Nieuwe kaart? Vervang het bestand en houd dezelfde naam aan.
+- `.htaccess`: https, doorverwijzingen van de adressen van de oude website, de 404-pagina en beveiligingsinstellingen voor de browser
 - `robots.txt` en `sitemap.xml`: voor Google
 
 ## Boekingen

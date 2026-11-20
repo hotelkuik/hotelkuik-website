@@ -194,7 +194,7 @@ details.inhoud .lijst{display:flex;flex-direction:column;gap:14px;padding-bottom
 .formulier input[type=text],.formulier input[type=tel],.formulier input[type=email],.formulier input[type=date],.formulier input[type=number],.formulier select,.formulier textarea{font:inherit;font-size:var(--t-s);color:var(--inkt);background:var(--wit);border:1px solid #CFC6C0;border-radius:4px;padding:11px 12px;width:100%;min-height:48px}
 .formulier textarea{resize:vertical}
 .formulier [aria-invalid=true]{border:2px solid var(--fout)}
-.opties{display:flex;flex-direction:column;gap:6px;max-height:360px;overflow-y:auto;padding:6px 10px;border:1px solid #CFC6C0;border-radius:4px;background:var(--wit)}
+.opties{display:flex;flex-direction:column;gap:6px;padding:6px 10px;border:1px solid #CFC6C0;border-radius:4px;background:var(--wit)}
 .optgroep{border:0;margin:0;padding:6px 0}
 .optgroep legend{font-weight:700;font-size:var(--t-s);padding:0 0 4px}
 .opt{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:6px 4px;cursor:pointer;border-radius:4px}
@@ -225,6 +225,21 @@ details.inhoud .lijst{display:flex;flex-direction:column;gap:14px;padding-bottom
 .held.zonder .held-tekst{padding-block:220px 56px}
 .held-bijschrift{top:auto;bottom:12px}
 @media (max-width:1060px){.held-tekst,.held.zonder .held-tekst{padding-top:190px}}
+@media (max-width:700px){.held-tekst,.held.zonder .held-tekst{padding-top:224px}}
+@media (max-width:360px){.held-tekst,.held.zonder .held-tekst{padding-top:268px}}
+
+/* lange buffetnamen breken af op een smal scherm in plaats van de pagina breder te maken */
+.prijsband h3{min-width:0;overflow-wrap:break-word;hyphens:auto;hyphenate-limit-chars:12 5 5}
+
+/* groepen in het formulier (fieldset) zonder standaardrand */
+.veld-groep{border:0;margin:0;padding:0;min-width:0;display:flex;flex-direction:column;gap:8px}
+.veld-groep>legend{padding:0;margin-bottom:8px}
+.veld-groep>legend.label{font-weight:600;font-size:var(--t-s)}
+.veld label.sub-label{font-weight:400;font-size:var(--t-xs);color:var(--grijs)}
+
+/* pagina niet gevonden */
+.niet-gevonden{display:flex;flex-direction:column;gap:20px;padding-block:48px 64px;max-width:40em}
+.niet-gevonden ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
 
 /* ---------- verbeteringen uit de review ---------- */
 /* regels niet te lang: rond de 70 tekens */

@@ -30,14 +30,32 @@ RewriteRule ^fietsverhuur/?$ /omgeving/#fietsen [R=301,L,NE]
 RewriteRule ^(locatie|over-ons|veelgestelde-vragen|algemene-voorwaarden)/?$ /contact/ [R=301,L]
 RewriteRule ^(vacatures|zelfstandig-werkend-kok)/?$ /contact/#vacatures [R=301,L,NE]
 
-# Onbekende pagina: terug naar de homepage
-ErrorDocument 404 /
+# Onbekende pagina: nette pagina met links naar de rest van de site
+ErrorDocument 404 /404.html
+
+# Interne bestanden niet openbaar maken (git, werkbestanden)
+RedirectMatch 404 /\.git
+<FilesMatch "\.(md|gitattributes|gitignore)$">
+  Require all denied
+</FilesMatch>
+
+# Beveiliging: extra afspraken met de browser
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; font-src 'self'; media-src 'self'; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+</IfModule>
 
 # Snelheid: bestanden laten bewaren door de browser
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/jpeg "access plus 1 month"
   ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType application/pdf "access plus 1 week"
   ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType text/css "access plus 1 week"
   ExpiresByType application/javascript "access plus 1 week"

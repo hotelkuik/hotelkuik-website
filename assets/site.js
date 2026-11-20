@@ -55,6 +55,7 @@
     var data={
       datum:datum.value, personen:parseInt(pers.value,10),
       gelegenheid:document.getElementById('f-gelegenheid').value,
+      buffetIds:g.map(function(i){return i.value;}),
       buffetten:g.map(function(i){return i.dataset.naam;}),
       prijsPerPersoon:g.reduce(function(t,i){return t+parseFloat(i.dataset.prijs);},0),
       dieet:Array.prototype.map.call(form.querySelectorAll('input[name=dieet]:checked'),function(i){return i.value;}),

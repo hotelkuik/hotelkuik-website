@@ -13,9 +13,9 @@
 <meta property="og:image" content="https://www.hotelkuik.nl/assets/img/restaurant.jpg">
 <link rel="icon" type="image/png" href="../assets/img/icoon.png">
 <link rel="preload" href="../assets/fonts/source-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/basis.css?v=8">
-<link rel="stylesheet" href="../assets/site.css?v=8">
-<script src="../assets/site.js?v=8" defer></script>
+<link rel="stylesheet" href="../assets/basis.css?v=9">
+<link rel="stylesheet" href="../assets/site.css?v=9">
+<script src="../assets/site.js?v=9" defer></script>
 </head>
 <body>
 <header class="site"><div class="binnen">
@@ -71,7 +71,7 @@
         </div></details>
       </article>
     </div>
-    <p class="note">Wilt u andere gerechten? Via het <a href="https://form.jotform.com/253505300199049">online aanvraagformulier</a> stelt u uw buffet op maat samen en ziet u direct een prijsindicatie.</p>
+    <p class="note">Wilt u andere gerechten? Zet het bij <a href="#aanvragen">uw aanvraag</a> onder opmerkingen, dan maken we samen een buffet op maat.</p>
   </section>
 
   <section class="soort" id="stamppot">
@@ -173,7 +173,7 @@
     <div class="aanvraag-kop">
       <h2 id="aanvr">Vrijblijvend aanvragen</h2>
       <p>Vul in wat u in gedachten heeft. Wij bellen u daarna op om alles door te spreken. Pas na dat gesprek is de aanvraag definitief.</p>
-      <ol class="stappen"><li><span><b>U vult het formulier in</b>, dat duurt een minuut.</span></li><li><span><b>Wij bellen u terug</b> om de wensen, de datum en het aantal personen door te nemen.</span></li><li><span><b>U krijgt een bevestiging</b> en wij zorgen voor de rest.</span></li></ol>
+      <ol class="stappen"><li><span><b>U vult het formulier in</b> Dat duurt ongeveer een minuut.</span></li><li><span><b>Wij bellen u terug</b> om de wensen, de datum en het aantal personen door te nemen.</span></li><li><span><b>U krijgt een bevestiging</b> en wij zorgen voor de rest.</span></li></ol>
       <p class="contact">Liever direct bellen? <a href="tel:+31522471237">0522 47 12 37</a></p>
     </div>
 
@@ -186,21 +186,22 @@
       <div class="veld"><label for="f-gelegenheid">Gelegenheid</label>
         <select id="f-gelegenheid" name="gelegenheid"><option value="">Kies…</option><option>Verjaardag</option><option>Familiefeest</option><option>Jubileum</option><option>Bedrijfsbijeenkomst</option><option>Uitvaart</option><option>Anders</option></select></div>
 
-      <div class="veld"><span class="label">Welke buffetten? <small>Meerdere kiezen mag</small></span>
+      <fieldset class="veld veld-groep"><legend class="label">Welke buffetten? <small>Meerdere kiezen mag</small></legend>
         <div class="opties"><fieldset class="optgroep"><legend>Koud en Warm</legend><label class="opt"><input type="checkbox" name="buffet" id="b-kw1" value="kw1" data-prijs="29.5" data-naam="Koud en Warm Buffet 1"><span class="opt-naam">Koud en Warm Buffet 1</span><span class="opt-prijs">€ 29,50</span></label><label class="opt"><input type="checkbox" name="buffet" id="b-kw2" value="kw2" data-prijs="34.5" data-naam="Koud en Warm Buffet 2"><span class="opt-naam">Koud en Warm Buffet 2</span><span class="opt-prijs">€ 34,50</span></label><label class="opt"><input type="checkbox" name="buffet" id="b-kwr" value="kwr" data-prijs="42.5" data-naam="Heerlijkheid Ruinen Koud en Warm"><span class="opt-naam">Heerlijkheid Ruinen Koud en Warm</span><span class="opt-prijs">€ 42,50</span></label></fieldset><fieldset class="optgroep"><legend>Stamppot</legend><label class="opt"><input type="checkbox" name="buffet" id="b-st" value="st" data-prijs="27.5" data-naam="Stamppotbuffet"><span class="opt-naam">Stamppotbuffet</span><span class="opt-prijs">€ 27,50</span></label><label class="opt"><input type="checkbox" name="buffet" id="b-str" value="str" data-prijs="35.0" data-naam="Heerlijkheid Ruinen Stamppot"><span class="opt-naam">Heerlijkheid Ruinen Stamppot</span><span class="opt-prijs">€ 35,00</span></label></fieldset><fieldset class="optgroep"><legend>Koffietafels</legend><label class="opt"><input type="checkbox" name="buffet" id="b-k1" value="k1" data-prijs="14.5" data-naam="Koffietafel 1"><span class="opt-naam">Koffietafel 1</span><span class="opt-prijs">€ 14,50</span></label><label class="opt"><input type="checkbox" name="buffet" id="b-k2" value="k2" data-prijs="17.5" data-naam="Koffietafel 2"><span class="opt-naam">Koffietafel 2</span><span class="opt-prijs">€ 17,50</span></label><label class="opt"><input type="checkbox" name="buffet" id="b-kr" value="kr" data-prijs="22.5" data-naam="Heerlijkheid Ruinen Koffietafel"><span class="opt-naam">Heerlijkheid Ruinen Koffietafel</span><span class="opt-prijs">€ 22,50</span></label></fieldset><fieldset class="optgroep"><legend>Ragout</legend><label class="opt"><input type="checkbox" name="buffet" id="b-r" value="r" data-prijs="18.5" data-naam="Ragoutbuffet"><span class="opt-naam">Ragoutbuffet</span><span class="opt-prijs">€ 18,50</span></label><label class="opt"><input type="checkbox" name="buffet" id="b-rr" value="rr" data-prijs="23.5" data-naam="Heerlijkheid Ruinen Ragout"><span class="opt-naam">Heerlijkheid Ruinen Ragout</span><span class="opt-prijs">€ 23,50</span></label></fieldset><fieldset class="optgroep"><legend>High Tea & Brunch</legend><label class="opt"><input type="checkbox" name="buffet" id="b-ht" value="ht" data-prijs="22.5" data-naam="High Tea"><span class="opt-naam">High Tea</span><span class="opt-prijs">€ 22,50</span></label><label class="opt"><input type="checkbox" name="buffet" id="b-br" value="br" data-prijs="22.5" data-naam="Brunch"><span class="opt-naam">Brunch</span><span class="opt-prijs">€ 22,50</span></label></fieldset><fieldset class="optgroep"><legend>Pannenkoeken</legend><label class="opt"><input type="checkbox" name="buffet" id="b-p" value="p" data-prijs="17.5" data-naam="Pannenkoekenlunch"><span class="opt-naam">Pannenkoekenlunch</span><span class="opt-prijs">€ 17,50</span></label></fieldset><fieldset class="optgroep"><legend>Dessert</legend><label class="opt"><input type="checkbox" name="buffet" id="b-d" value="d" data-prijs="10.0" data-naam="Dessertbuffet"><span class="opt-naam">Dessertbuffet</span><span class="opt-prijs">€ 10,00</span></label><label class="opt"><input type="checkbox" name="buffet" id="b-dr" value="dr" data-prijs="15.5" data-naam="Heerlijkheid Ruinen Dessert"><span class="opt-naam">Heerlijkheid Ruinen Dessert</span><span class="opt-prijs">€ 15,50</span></label></fieldset></div>
         <div class="totaal" id="f-totaal" aria-live="polite">Nog geen buffet gekozen</div>
-      </div>
+      </fieldset>
 
-      <div class="veld"><span class="label">Dieetwensen</span>
+      <fieldset class="veld veld-groep"><legend class="label">Dieetwensen</legend>
         <div class="chips">
           <label class="chip"><input type="checkbox" name="dieet" id="d-veg" value="Vegetarisch"><span>Vegetarisch</span></label>
           <label class="chip"><input type="checkbox" name="dieet" id="d-glu" value="Glutenvrij"><span>Glutenvrij</span></label>
           <label class="chip"><input type="checkbox" name="dieet" id="d-lac" value="Lactosevrij"><span>Lactosevrij</span></label>
           <label class="chip"><input type="checkbox" name="dieet" id="d-noot" value="Notenallergie"><span>Notenallergie</span></label>
         </div>
+        <label for="f-dieet" class="sub-label">Toelichting (optioneel), bijvoorbeeld wie welk dieet heeft</label>
         <textarea id="f-dieet" name="dieetToelichting" rows="2" placeholder="Bijv. 3 personen vegetarisch, 1 kind met notenallergie"></textarea>
         <p class="klein">Een allergie gebruiken we alleen om uw buffet aan te passen.</p>
-      </div>
+      </fieldset>
 
       <div class="veld-rij">
         <div class="veld"><label for="f-naam">Uw naam</label><input type="text" id="f-naam" name="naam" autocomplete="name" required></div>
