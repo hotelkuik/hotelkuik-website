@@ -219,3 +219,5 @@ details.inhoud .lijst{display:flex;flex-direction:column;gap:14px;padding-bottom
 
 .prijslijst.twee{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:22px 56px}
 .dieet:has(>:only-child){grid-template-columns:1fr}
+.held.zonder .held-tekst{padding-top:128px}
+@media (max-width:900px){.held.zonder .held-tekst{padding-top:96px}}

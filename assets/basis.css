@@ -92,3 +92,14 @@ a.regel:hover .regel-naam{color:var(--oxide);text-decoration:underline;text-deco
 @media (max-width:760px){.voet .binnen{grid-template-columns:1fr 1fr}.voet .binnen>:first-child{grid-column:1/-1}}
 
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* logo als uithangbord: groter, valt over de rand van de kop */
+.site{position:relative;z-index:10}
+.site .binnen{position:relative;min-height:76px;padding-left:calc(var(--goot) + 176px)}
+.site-merk{position:absolute;top:0;left:var(--goot);z-index:11;background:var(--wit);padding:14px 18px 16px;border-bottom:4px solid var(--oxide);line-height:0}
+.site-merk .site-logo{width:132px}
+@media (max-width:900px){
+  .site .binnen{padding-left:calc(var(--goot) + 124px);min-height:0}
+  .site-merk{padding:10px 12px 12px}
+  .site-merk .site-logo{width:92px}
+}
