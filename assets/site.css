@@ -89,7 +89,7 @@ details.inhoud .lijst{display:flex;flex-direction:column;gap:14px;padding-bottom
 .dieet h2,.inbegrepen h2{font-size:var(--t-xl);margin-bottom:8px}
 .dieet p{color:var(--grijs)}
 .inbegrepen{grid-template-columns:1fr}
-.inbegrepen .sectie-tekst{max-width:44em}
+.inbegrepen .sectie-tekst{max-width:36em}
 .dieet-tags,.inbegrepen ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:8px 24px}
 .dieet-tags li,.inbegrepen li{display:flex;gap:10px;align-items:baseline}
 .dieet-tags li::before,.inbegrepen li::before{content:"";flex:none;width:11px;height:6px;border-left:2px solid var(--oxide);border-bottom:2px solid var(--oxide);transform:rotate(-45deg) translateY(-3px)}
@@ -225,3 +225,27 @@ details.inhoud .lijst{display:flex;flex-direction:column;gap:14px;padding-bottom
 .held.zonder .held-tekst{padding-block:220px 56px}
 .held-bijschrift{top:auto;bottom:12px}
 @media (max-width:1060px){.held-tekst,.held.zonder .held-tekst{padding-top:190px}}
+
+/* ---------- verbeteringen uit de review ---------- */
+/* regels niet te lang: rond de 70 tekens */
+.pagina p,.soort-head p,.faq p,.boekbalk-kop p,.dieet p,.note,.vooraf{max-width:36em}
+/* praktische info binnen een sectie: één nette lijst */
+.soort .praktisch dl{grid-template-columns:1fr;max-width:40em}
+.soort .praktisch dl div{grid-template-columns:8em 1fr}
+@media (max-width:480px){.soort .praktisch dl div{grid-template-columns:1fr}}
+/* tekstpagina (privacy) */
+.tekstpagina{gap:40px}
+.tekstpagina section{display:flex;flex-direction:column;gap:12px;max-width:40em}
+.tekstpagina h2{font-size:var(--t-xl)}
+.tekstpagina h3{font-size:1.25rem;margin-top:8px}
+/* wat gasten zeggen */
+.gasten{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px 56px;align-items:start;border-top:1px solid var(--lijn);padding-top:40px}
+.gasten h2{grid-column:1/-1}
+.gasten-scores{display:flex;flex-direction:column;gap:20px}
+.gasten-scores p{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.gasten-scores b{font-family:var(--kop);font-weight:400;font-size:3rem;line-height:1;color:var(--oxide)}
+.gasten-scores span{color:var(--grijs)}
+.gasten-citaat{margin:0;font-family:var(--kop);font-size:1.625rem;line-height:1.35;padding-left:24px;border-left:3px solid var(--eiken)}
+.gasten-citaat p{max-width:none}
+.gasten-citaat footer{font-family:var(--tekst);font-size:var(--t-s);color:var(--grijs);margin-top:12px}
+@media (max-width:860px){.gasten{grid-template-columns:1fr}.gasten-citaat{font-size:1.375rem}}

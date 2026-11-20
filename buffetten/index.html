@@ -13,9 +13,9 @@
 <meta property="og:image" content="https://www.hotelkuik.nl/assets/img/restaurant.jpg">
 <link rel="icon" type="image/png" href="../assets/img/icoon.png">
 <link rel="preload" href="../assets/fonts/source-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/basis.css?v=7">
-<link rel="stylesheet" href="../assets/site.css?v=7">
-<script src="../assets/site.js?v=7" defer></script>
+<link rel="stylesheet" href="../assets/basis.css?v=8">
+<link rel="stylesheet" href="../assets/site.css?v=8">
+<script src="../assets/site.js?v=8" defer></script>
 </head>
 <body>
 <header class="site"><div class="binnen">
@@ -24,7 +24,7 @@
   <a class="site-tel" href="tel:+31522471237" aria-label="Bel ons: 0522 47 12 37"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span class="nr">0522 47 12 37</span></a>
 </div></header>
 <main>
-<section class="held"><img class="held-media" src="../assets/img/bar.jpg" alt="De bar en zaal met koperen lampen en heidebehang" width="1400" height="1050" style="object-position:center 55%" fetchpriority="high"><div class="binnen held-tekst"><h1>Onze buffetten</h1><p>Voor verjaardagen, familiefeesten, bedrijfsbijeenkomsten en uitvaarten. Royaal samengesteld en tijdens uw feest steeds bijgevuld.</p></div></section>
+<section class="held"><img class="held-media" src="../assets/img/bar-1400.webp" srcset="../assets/img/bar-800.webp 800w, ../assets/img/bar-1400.webp 1400w" sizes="100vw" alt="De bar en zaal met koperen lampen en heidebehang" width="1400" height="1050" style="object-position:center 55%" fetchpriority="high"><div class="binnen held-tekst"><h1>Onze buffetten</h1><p>Voor verjaardagen, familiefeesten, bedrijfsbijeenkomsten en uitvaarten. Royaal samengesteld en tijdens uw feest steeds bijgevuld.</p></div></section>
 <div class="binnen pagina">
 <p class="vooraf">Waar mogelijk bereid met streekproducten, onder andere van <b>Molen De Zaandplatte</b> in Ruinen.</p><section class="soort" aria-labelledby="kies"><div class="soort-head"><h2 id="kies">Kies een buffet</h2><p>Prijzen per persoon. Klik op een buffet voor alle gerechten.</p></div><ul class="prijslijst twee"><li><a class="regel" href="#koud-warm"><span class="regel-tag">Meest gekozen</span><span class="regel-naam">Koud en Warm Buffet</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 29,50</span><span class="regel-oms">Feesten en jubilea</span></a></li><li><a class="regel" href="#stamppot"><span class="regel-tag">Meest gekozen</span><span class="regel-naam">Stamppotbuffet</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 27,50</span><span class="regel-oms">Hollandse pot, winteravond</span></a></li><li><a class="regel" href="#koffietafels"><span class="regel-naam">Drentse Koffietafel</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 14,50</span><span class="regel-oms">Lunch, uitvaart, vergadering</span></a></li><li><a class="regel" href="#ragout"><span class="regel-naam">Ragoutbuffet</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 18,50</span><span class="regel-oms">Warm en betaalbaar, grote groepen</span></a></li><li><a class="regel" href="#hightea"><span class="regel-naam">High Tea &amp; Brunch</span><span class="regel-stip"></span><span class="regel-prijs">€ 22,50</span><span class="regel-oms">Middag of late ochtend</span></a></li><li><a class="regel" href="#pannenkoeken"><span class="regel-naam">Pannenkoekenlunch</span><span class="regel-stip"></span><span class="regel-prijs">€ 17,50</span><span class="regel-oms">Met kinderen, informeel</span></a></li><li><a class="regel" href="#dessert"><span class="regel-naam">Dessertbuffet</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 10,00</span><span class="regel-oms">Als afsluiter bij elk buffet</span></a></li></ul></section>
 
@@ -174,7 +174,7 @@
       <h2 id="aanvr">Vrijblijvend aanvragen</h2>
       <p>Vul in wat u in gedachten heeft. Wij bellen u daarna op om alles door te spreken. Pas na dat gesprek is de aanvraag definitief.</p>
       <ol class="stappen"><li><span><b>U vult het formulier in</b>, dat duurt een minuut.</span></li><li><span><b>Wij bellen u terug</b> om de wensen, de datum en het aantal personen door te nemen.</span></li><li><span><b>U krijgt een bevestiging</b> en wij zorgen voor de rest.</span></li></ol>
-      <p class="contact">Liever direct bellen? <span>+31 522 47 12 37</span></p>
+      <p class="contact">Liever direct bellen? <a href="tel:+31522471237">0522 47 12 37</a></p>
     </div>
 
     <form id="aanvraag-form" class="formulier" action="../verstuur.php" method="post" novalidate>
@@ -199,6 +199,7 @@
           <label class="chip"><input type="checkbox" name="dieet" id="d-noot" value="Notenallergie"><span>Notenallergie</span></label>
         </div>
         <textarea id="f-dieet" name="dieetToelichting" rows="2" placeholder="Bijv. 3 personen vegetarisch, 1 kind met notenallergie"></textarea>
+        <p class="klein">Een allergie gebruiken we alleen om uw buffet aan te passen.</p>
       </div>
 
       <div class="veld-rij">
@@ -214,7 +215,7 @@
 
       <p class="fout" id="f-fout" role="alert" hidden></p>
       <button type="submit" class="verstuur" id="f-verstuur">Vrijblijvend aanvragen</button>
-      <p class="klein">Vrijblijvend: u zit nergens aan vast tot u na ons telefoontje bevestigt. We gebruiken uw gegevens alleen om contact met u op te nemen over deze aanvraag.</p>
+      <p class="klein">Vrijblijvend: u zit nergens aan vast tot u na ons telefoontje bevestigt. We gebruiken uw gegevens alleen om contact met u op te nemen over deze aanvraag. Lees meer in onze <a href="../privacy/">privacyverklaring</a>.</p>
     </form>
 
     <div class="bedankt" id="f-bedankt" hidden tabindex="-1">
@@ -229,8 +230,8 @@
 <footer class="voet"><div class="binnen">
   <span class="site-logo" role="img" aria-label="Hotel Kuik"></span>
   <div><h2>Adres</h2><p>Brink 15<br>7963 AA Ruinen<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Kuik+Brink+15+Ruinen">Route plannen</a></p></div>
-  <div><h2>Bel of mail</h2><p><a href="tel:+31522471237">0522 47 12 37</a><br><a href="mailto:info@hotelkuik.nl">info@hotelkuik.nl</a><br>WhatsApp 06 30 52 45 10</p></div>
-  <div><h2>Meer</h2><p><a href="https://www.facebook.com/HotelKuikRuinen/">Facebook</a><br><a href="https://instagram.com/hotelkuik/">Instagram</a><br><a href="../contact/#vacatures">Werken bij Hotel Kuik</a></p></div>
+  <div><h2>Bel of mail</h2><p><a href="tel:+31522471237">0522 47 12 37</a><br><a href="mailto:info@hotelkuik.nl">info@hotelkuik.nl</a><br>WhatsApp <a href="https://wa.me/31630524510">06 30 52 45 10</a></p></div>
+  <div><h2>Meer</h2><p><a href="https://www.facebook.com/HotelKuikRuinen/">Facebook</a><br><a href="https://instagram.com/hotelkuik/">Instagram</a><br><a href="../contact/#vacatures">Werken bij Hotel Kuik</a><br><a href="../privacy/">Privacyverklaring</a></p></div>
 </div></footer>
 </body>
 </html>
