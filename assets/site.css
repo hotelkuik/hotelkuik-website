@@ -221,7 +221,7 @@ details.inhoud .lijst{display:flex;flex-direction:column;gap:14px;padding-bottom
 .dieet:has(>:only-child){grid-template-columns:1fr}
 
 /* ruimte bovenin de foto voor de kop */
-.held-tekst{padding-top:200px}
-.held.zonder .held-tekst{padding-block:200px 56px}
+.held-tekst{padding-top:230px}
+.held.zonder .held-tekst{padding-block:220px 56px}
 .held-bijschrift{top:auto;bottom:12px}
 @media (max-width:1060px){.held-tekst,.held.zonder .held-tekst{padding-top:190px}}

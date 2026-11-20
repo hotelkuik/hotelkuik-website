@@ -78,8 +78,8 @@ a.regel:hover .regel-naam{color:var(--oxide);text-decoration:underline;text-deco
 /* ---------- kop: ligt over de grote foto, logo en menu in wit ---------- */
 body{position:relative}
 .site{position:absolute;top:0;left:0;right:0;z-index:20;color:var(--wit);
-  background:linear-gradient(to bottom,rgba(32,26,24,.78) 0%,rgba(32,26,24,.45) 60%,rgba(32,26,24,0) 100%)}
-.site .binnen{display:flex;align-items:flex-start;gap:16px 32px;padding-block:18px 28px}
+  background:linear-gradient(to bottom,rgba(32,26,24,.82) 0%,rgba(32,26,24,.66) 62%,rgba(32,26,24,0) 100%)}
+.site .binnen{display:flex;align-items:flex-start;gap:16px 32px;padding-block:18px 72px}
 .site-merk{display:block;line-height:0;flex:none}
 .site-logo{display:block;width:72px;aspect-ratio:640/594;background:var(--inkt);
   -webkit-mask:url(img/logo.png) center/contain no-repeat;mask:url(img/logo.png) center/contain no-repeat}
@@ -93,7 +93,7 @@ body{position:relative}
 .site-tel:hover{background:var(--heide);color:var(--oxide-donker)}
 .site-tel svg{width:18px;height:18px;fill:currentColor;flex:none}
 @media (max-width:1060px){
-  .site .binnen{flex-wrap:wrap;align-items:center;padding-block:12px 20px}
+  .site .binnen{flex-wrap:wrap;align-items:center;padding-block:12px 44px}
   .site .site-logo{width:84px}
   .site-tel{margin:0 0 0 auto}
   .site nav{order:3;width:100%;margin-left:0;padding-top:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:22px}
