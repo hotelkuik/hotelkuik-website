@@ -116,7 +116,8 @@
   var IBE='https://ibe.smarthotel.nl/hotel/ae0d9185-175a-4b8b-92d4-86be0e005504/';
   function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
   function plus(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x;}
-  function lees(v){var p=v.split('-');return new Date(+p[0],p[1]-1,+p[2]);}
+  // alleen een echte datum (jjjj-mm-dd) telt; anders vandaag, zodat de boekingslink altijd klopt
+  function lees(v){var p=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||'');var d=p?new Date(+p[1],p[2]-1,+p[3]):new Date(NaN);return isNaN(d)?new Date(vandaag):d;}
   var vandaag=new Date(); vandaag.setHours(0,0,0,0);
   var balken=[].slice.call(document.querySelectorAll('[data-boekbalk]'));
   balken.forEach(function(el){
@@ -133,7 +134,7 @@
       ovw.textContent=tel.vw; oki.textContent=tel.ki;
       el.querySelectorAll('[data-min]').forEach(function(b){b.disabled=tel[b.dataset.min]<=grens[b.dataset.min][0];});
       el.querySelectorAll('[data-plus]').forEach(function(b){b.disabled=tel[b.dataset.plus]>=grens[b.dataset.plus][1];});
-      knop.href=IBE+bin.value+'/'+buit.value+'/'+tel.vw+'/'+tel.ki+'/0/0/rooms';
+      knop.href=IBE+iso(din)+'/'+iso(lees(buit.value))+'/'+tel.vw+'/'+tel.ki+'/0/0/rooms';
       var dt=function(v){return lees(v).toLocaleDateString('nl-NL',{weekday:'short',day:'numeric',month:'short'});};
       info.textContent=dt(bin.value)+' tot '+dt(buit.value)+': '+n+(n===1?' nacht':' nachten')+' voor '+tel.vw+(tel.vw===1?' volwassene':' volwassenen')+(tel.ki?' en '+tel.ki+(tel.ki===1?' kind':' kinderen'):'')+'.';
     }

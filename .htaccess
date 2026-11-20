@@ -2,6 +2,9 @@
 
 RewriteEngine On
 
+# Geen lijst met bestanden tonen als iemand een map opent (bijv. /assets/img/)
+Options -Indexes
+
 # Altijd via https en met www
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} !^www\. [NC]

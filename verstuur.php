@@ -10,8 +10,13 @@ $ontvanger = 'info@hotelkuik.nl';
 $afzender  = 'website@hotelkuik.nl';
 $maxPerUur = 5;     // aanvragen per bezoeker (IP-adres) per uur, tegen spam
 
+// Nooit technische foutmeldingen aan bezoekers laten zien (die gaan alleen naar het foutlogboek)
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
+header('X-Robots-Tag: noindex');
 
 function stop($code, $fout) {
     http_response_code($code);
