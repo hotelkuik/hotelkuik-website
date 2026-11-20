@@ -134,7 +134,7 @@
       el.querySelectorAll('[data-plus]').forEach(function(b){b.disabled=tel[b.dataset.plus]>=grens[b.dataset.plus][1];});
       knop.href=IBE+bin.value+'/'+buit.value+'/'+tel.vw+'/'+tel.ki+'/0/0/rooms';
       var dt=function(v){return lees(v).toLocaleDateString('nl-NL',{weekday:'short',day:'numeric',month:'short'});};
-      info.textContent=n+(n===1?' nacht':' nachten')+' · '+dt(bin.value)+' t/m '+dt(buit.value)+' · '+tel.vw+(tel.vw===1?' volwassene':' volwassenen')+(tel.ki?', '+tel.ki+(tel.ki===1?' kind':' kinderen'):'')+(n>=2?' · arrangementen vanaf 2 nachten':'');
+      info.textContent=dt(bin.value)+' tot '+dt(buit.value)+': '+n+(n===1?' nacht':' nachten')+' voor '+tel.vw+(tel.vw===1?' volwassene':' volwassenen')+(tel.ki?' en '+tel.ki+(tel.ki===1?' kind':' kinderen'):'')+'.';
     }
     el.addEventListener('click',function(e){
       var b=e.target.closest('button'); if(!b) return;

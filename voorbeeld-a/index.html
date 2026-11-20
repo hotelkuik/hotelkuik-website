@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voorbeeld A: Menukaart | Hotel Kuik</title><meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/icoon.png"><link rel="stylesheet" href="../assets/basis.css?v=1">
+<style>
+.keuzebalk{background:#FFF7D6;border-bottom:1px solid #E8D98A;font-size:.9375rem}
+.keuzebalk .binnen{display:flex;flex-wrap:wrap;gap:6px 18px;padding-block:8px;align-items:center}
+.keuzebalk a{color:var(--inkt)} .keuzebalk a[aria-current]{font-weight:700}
+
+.held{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:56px 48px}
+.held .tekstkant{display:flex;flex-direction:column;gap:20px}
+.held .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.held img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.held figcaption{margin-top:8px}
+.kaart-twee{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:72px}
+.kaart-twee h2{margin-bottom:8px} .kaart-twee .intro{font-size:var(--t-m);margin-bottom:28px}
+.kaart-kop{border-top:3px double var(--eiken);padding-top:20px}
+.terras{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:48px;align-items:center;margin-top:96px}
+.terras img{aspect-ratio:3/2;object-fit:cover}
+.terras div{display:flex;flex-direction:column;gap:14px}
+@media (max-width:860px){.held,.kaart-twee,.terras{grid-template-columns:1fr;gap:32px}.held{padding-top:32px}.held img{aspect-ratio:4/3}}
+
+</style>
+<script src="../assets/site.js?v=3" defer></script></head>
+<body>
+<div class="keuzebalk"><div class="binnen"><b>Kies een layout:</b><a href="../voorbeeld-a/" aria-current=page>A: Menukaart</a><a href="../voorbeeld-b/">B: Foto voorop</a><a href="../voorbeeld-c/">C: Café aan de Brink</a></div></div>
+<header class="site"><div class="binnen">
+  <a href="../" aria-label="Hotel Kuik, naar de homepage"><span class="site-logo" role="img" aria-label="Hotel Kuik, sinds 1936"></span></a>
+  <nav aria-label="Hoofdmenu">
+    <a href="../" aria-current="page">Home</a><a href="../overnachten/">Overnachten</a><a href="../eten-drinken/">Eten &amp; drinken</a><a href="../buffetten/">Buffetten</a><a href="../partijen-vergaderen/">Partijen</a><a href="../omgeving/">Omgeving</a><a href="../contact/">Contact</a>
+  </nav>
+  <a class="site-tel" href="tel:+31522471237">0522 47 12 37</a>
+</div></header>
+<main>
+<div class="binnen">
+<section class="held">
+  <div class="tekstkant">
+    <h1>Hotel Kuik, aan de Brink in Ruinen</h1>
+    <p class="intro">Tegenover de oude Mariakerk, midden in Ruinen en vlak bij het Dwingelderveld. Comfortabele kamers, een keuken met streekproducten en een terras met uitzicht over de Brink.</p>
+    <div class="knoppen"><a class="knop" href="#boek-t">Kamer boeken</a><a class="knop secundair" href="../buffetten/">Buffet aanvragen</a></div>
+    <p class="klein">Sinds 1936. Bel ons gerust: 0522 47 12 37</p>
+  </div>
+  <figure style="margin:0"><img src="../assets/img/lounge.jpg" alt="Zithoek met leren fauteuils bij de open haard" width="1400" height="1050"><figcaption class="klein">De zithoek bij de open haard</figcaption></figure>
+</section>
+<section class="boekbalk" data-boekbalk aria-labelledby="boek-t">
+  <h2 id="boek-t">Kamer boeken</h2>
+  <div class="boekbalk-velden">
+    <div class="veld"><label for="b-in">Aankomst</label><input type="date" id="b-in" data-in></div>
+    <div class="veld"><label for="b-uit">Vertrek</label><input type="date" id="b-uit" data-uit></div>
+    <div class="veld"><span class="label" id="b-vw">Volwassenen</span><div class="stepper"><button type="button" data-min="vw" aria-label="Eén volwassene minder">−</button><output data-vw aria-labelledby="b-vw">2</output><button type="button" data-plus="vw" aria-label="Eén volwassene meer">+</button></div></div>
+    <div class="veld"><span class="label" id="b-ki">Kinderen</span><div class="stepper"><button type="button" data-min="ki" aria-label="Eén kind minder">−</button><output data-ki aria-labelledby="b-ki">0</output><button type="button" data-plus="ki" aria-label="Eén kind meer">+</button></div></div>
+    <a class="knop" data-boek href="https://ibe.smarthotel.nl/hotel/ae0d9185-175a-4b8b-92d4-86be0e005504/" target="_blank" rel="noopener">Prijzen bekijken</a>
+  </div>
+  <p class="boekbalk-info" data-info aria-live="polite"></p>
+</section>
+<div class="kaart-twee">
+  <section class="kaart-kop"><h2>Overnachten</h2><p class="intro">Halfpension in elk seizoen: kamer, uitgebreid ontbijt en elke avond een 3-gangendiner.</p><ul class="prijslijst">
+  <li><a class="regel" href="../overnachten/#kerst"><span class="regel-tag">24 tot 27 december</span><span class="regel-naam">Kerst aan de Brink</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 180</span><span class="regel-oms">2 nachten met ontbijt en elke avond een 3-gangendiner</span></a></li>
+  <li><a class="regel" href="../overnachten/#seizoenen"><span class="regel-naam">Warme Wintertrui</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 180</span></a></li>
+  <li><a class="regel" href="../overnachten/#seizoenen"><span class="regel-naam">Vrolijk Voorjaar</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 185</span></a></li>
+  <li><a class="regel" href="../overnachten/#seizoenen"><span class="regel-naam">Zonnig Zomer</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 190</span></a></li>
+</ul>
+<p class="klein">Per persoon voor 2 nachten op basis van halfpension.</p></section>
+  <section class="kaart-kop"><h2>Buffetten</h2><p class="intro">Voor verjaardagen, jubilea en uitvaarten. Royaal, en steeds bijgevuld.</p><ul class="prijslijst">
+  <li><a class="regel" href="../buffetten/#koud-warm"><span class="regel-tag">Meest gekozen</span><span class="regel-naam">Koud en warm buffet</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 29,50</span><span class="regel-oms">Salades, beenham, kippendij met pindasaus, gegratineerde aardappels</span></a></li>
+  <li><a class="regel" href="../buffetten/#stamppot"><span class="regel-tag">Meest gekozen</span><span class="regel-naam">Stamppotbuffet</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 27,50</span><span class="regel-oms">Boerenkool, zuurkool, hutspot, rookworst en huisgemaakte gehaktballetjes</span></a></li>
+  <li><a class="regel" href="../buffetten/#koffietafels"><span class="regel-naam">Drentse koffietafel</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 14,50</span><span class="regel-oms">Brood, beleg, soep en koffie. Ook bij een uitvaart</span></a></li>
+  <li><a class="regel" href="../buffetten/#hightea"><span class="regel-naam">High tea of brunch</span><span class="regel-stip"></span><span class="regel-prijs">€ 22,50</span></a></li>
+  <li><a class="regel" href="../buffetten/#dessert"><span class="regel-naam">Dessertbuffet</span><span class="regel-stip"></span><span class="regel-prijs">vanaf € 10,00</span></a></li>
+</ul></section>
+</div>
+<section class="terras">
+  <img src="../assets/img/bar.jpg" alt="De bar met koperen lampen en heidebehang" width="1400" height="1050" loading="lazy">
+  <div><h2>Koffie, lunch of een borrel</h2><p>Het café is voor iedereen open. Binnen bij de bar, of buiten op het terras met uitzicht over de Brink. Na een fietstocht door het Dwingelderveld staat de koffie met eigengemaakt gebak klaar.</p><p><a href="../eten-drinken/">Bekijk de lunch- en dinerkaart</a></p></div>
+</section>
+</div>
+</main>
+<footer class="voet"><div class="binnen">
+  <span class="site-logo" role="img" aria-label="Hotel Kuik"></span>
+  <div><h2>Adres</h2><p>Brink 15<br>7963 AA Ruinen</p></div>
+  <div><h2>Bel of mail</h2><p><a href="tel:+31522471237">0522 47 12 37</a><br><a href="mailto:info@hotelkuik.nl">info@hotelkuik.nl</a></p></div>
+  <div><h2>Volg ons</h2><p><a href="https://www.facebook.com/HotelKuikRuinen/">Facebook</a><br><a href="https://instagram.com/hotelkuik/">Instagram</a></p></div>
+</div></footer>
+</body></html>
