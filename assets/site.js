@@ -154,7 +154,7 @@
 
   // kerst: na 27 december verbergen, "andere datums" zet de boekbalk op 24 december
   var kerst=document.getElementById('kerst');
-  if(kerst && vandaag>new Date(2026,11,27)){ kerst.hidden=true; var ks=document.querySelector('[data-kerst-strook]'); if(ks) ks.hidden=true; }
+  if(vandaag>new Date(2026,11,27)){ if(kerst) kerst.hidden=true; var ks=document.querySelector('[data-kerst-strook]'); if(ks) ks.hidden=true; }
   var kd=document.querySelector('[data-kerst-datum]');
   if(kd) kd.addEventListener('click',function(){ if(arrBalk&&arrBalk._zet) arrBalk._zet(new Date(2026,11,24)); });
   // knop bij een seizoen: zet de datum op het begin van dat seizoen als dat nog moet komen

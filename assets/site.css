@@ -1,0 +1,221 @@
+/* Hotel Kuik · pagina-opmaak "Foto voorop" (bouwt op basis.css, zie DESIGN.md) */
+
+/* ---------- grote foto bovenaan ---------- */
+.held{position:relative;display:flex;align-items:flex-end;color:var(--wit);overflow:hidden;background:var(--inkt);min-height:min(56vh,520px)}
+.held.home{min-height:min(80vh,720px)}
+.held-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.held::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(32,26,24,.86) 0%,rgba(32,26,24,.4) 48%,rgba(32,26,24,.05) 75%)}
+.held-tekst{position:relative;z-index:1;width:100%;display:flex;flex-direction:column;gap:14px;padding-block:96px 48px}
+.held.home .held-tekst{padding-bottom:128px}
+.held h1{max-width:14em;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.held p{font-size:var(--t-l);line-height:1.45;max-width:32em;color:#F1ECE9}
+.held-bijschrift{position:absolute;z-index:1;right:var(--goot);top:14px;font-size:var(--t-xs);color:#EDE7E3;background:rgba(32,26,24,.55);padding:3px 8px}
+.held.zonder{min-height:0}
+.held.zonder::after{display:none}
+.held.zonder .held-tekst{padding-block:56px 48px}
+@media (max-width:860px){
+  .held::after{background:linear-gradient(to top,rgba(32,26,24,.9) 0%,rgba(32,26,24,.7) 60%,rgba(32,26,24,.45) 100%)}
+  .held-tekst{padding-block:72px 36px}
+  .held.home .held-tekst{padding-bottom:104px}
+}
+@media (prefers-reduced-motion:reduce){video.held-media{display:none}}
+
+/* ---------- pagina ---------- */
+.pagina{display:flex;flex-direction:column;gap:88px;padding-top:64px}
+.boek-over{position:relative;z-index:2;margin-top:-80px}
+.boek-over + .pagina{padding-top:80px}
+.boekbalk.wit{background:var(--wit);border:1px solid var(--lijn);border-top:4px solid var(--oxide)}
+.vooraf{font-size:var(--t-l);color:var(--grijs);max-width:38em;margin-bottom:-40px}
+.vooraf b{color:var(--inkt);font-weight:600}
+@media (max-width:860px){.pagina{gap:64px;padding-top:48px}}
+
+/* sectiekop */
+.soort{display:flex;flex-direction:column;gap:28px;scroll-margin-top:84px}
+.soort-head{display:flex;flex-direction:column;gap:8px;max-width:44em}
+.soort-head p{color:var(--grijs)}
+.titel{display:flex;flex-direction:column-reverse;gap:4px}
+.populair-label{font-size:var(--t-xs);font-weight:700;color:var(--rood)}
+.note{color:var(--grijs);font-size:var(--t-s);max-width:44em}
+
+/* foto + tekst naast elkaar (homepage) */
+.strook{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center}
+.strook.om>figure{order:2}
+.strook figure{margin:0}
+.strook img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.strook figcaption{margin-top:8px}
+.strook .tekst{display:flex;flex-direction:column;gap:16px}
+.strook .tekst .knop{align-self:flex-start;margin-top:8px}
+@media (max-width:860px){.strook{grid-template-columns:1fr;gap:24px}.strook.om>figure{order:0}}
+
+/* ---------- buffetvarianten als menukaart ---------- */
+.varianten{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px 40px;align-items:start}
+.kaart{border-top:1px solid var(--lijn);padding-top:16px;min-width:0}
+.prijsband{display:flex;align-items:baseline;gap:10px}
+.prijsband h3{font-size:1.25rem;line-height:1.25;white-space:nowrap}
+@media (max-width:400px){.prijsband h3{white-space:normal}}
+.prijsband::after{content:"";order:1;flex:1;min-width:20px;border-bottom:2px dotted var(--eiken);transform:translateY(-.35em)}
+.prijsband .prijs{order:2;font-weight:700;color:var(--oxide);white-space:nowrap;font-variant-numeric:tabular-nums}
+.prijs small{font-weight:400;font-size:var(--t-xs);color:var(--grijs);margin-left:4px}
+.kaart.top{border-top:3px solid var(--oxide);padding-top:14px}
+.kaart.top h3{color:var(--oxide)}
+details.inhoud summary,.faq summary,.meer summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;font-weight:600;font-size:var(--t-s);color:var(--oxide);padding-block:10px}
+details.inhoud summary::-webkit-details-marker,.faq summary::-webkit-details-marker,.meer summary::-webkit-details-marker{display:none}
+details.inhoud summary::before,.faq summary::before,.meer summary::before{content:"+";display:inline-grid;place-items:center;width:22px;height:22px;border:2px solid currentColor;border-radius:50%;font-size:1rem;line-height:1;flex:none}
+details[open]>summary::before{content:"−"}
+details.inhoud .lijst{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+.kaart ul,.voorz{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:3px}
+.kaart li::marker,.voorz li::marker{color:var(--eiken)}
+.groep{display:flex;flex-direction:column;gap:4px}
+.groep>span{font-weight:700;font-size:var(--t-s)}
+.plus{font-style:italic;color:var(--grijs);font-size:var(--t-s)}
+
+/* prijzen in een lijst (extra's, afhalen) */
+.extra{max-width:44em}
+.extra h3{font-size:var(--t-xl);margin-bottom:12px}
+.extra dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:10px 12px;align-items:baseline}
+.extra dt{display:flex;align-items:baseline;gap:10px}
+.extra dt::after{content:"";flex:1;min-width:20px;border-bottom:2px dotted var(--eiken);transform:translateY(-.35em)}
+.extra dd{margin:0;font-weight:700;color:var(--oxide);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* subnavigatie op de buffetpagina */
+.balk{position:sticky;top:0;z-index:5;background:var(--wit);border-bottom:1px solid var(--lijn);overflow-x:auto;scrollbar-width:none}
+.balk::-webkit-scrollbar{display:none}
+.balk ul{list-style:none;margin:0;padding:0;display:flex;gap:24px;white-space:nowrap}
+.balk a{display:block;padding:14px 0;color:var(--inkt);text-decoration:none;font-weight:600;font-size:var(--t-s);border-bottom:2px solid transparent}
+.balk a:hover{border-bottom-color:var(--oxide);color:var(--oxide)}
+
+/* rustig vlak met tekst + lijst */
+.dieet,.inbegrepen{background:var(--heide);padding:32px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:start}
+.dieet h2,.inbegrepen h2{font-size:var(--t-xl);margin-bottom:8px}
+.dieet p{color:var(--grijs)}
+.inbegrepen{grid-template-columns:1fr}
+.inbegrepen .sectie-tekst{max-width:44em}
+.dieet-tags,.inbegrepen ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:8px 24px}
+.dieet-tags li,.inbegrepen li{display:flex;gap:10px;align-items:baseline}
+.dieet-tags li::before,.inbegrepen li::before{content:"";flex:none;width:11px;height:6px;border-left:2px solid var(--oxide);border-bottom:2px solid var(--oxide);transform:rotate(-45deg) translateY(-3px)}
+.dieet>.kies-knop{justify-self:start;align-self:center}
+.diner-kop{display:flex;justify-content:space-between;align-items:baseline;gap:8px 24px;flex-wrap:wrap;margin-bottom:6px}
+.diner-prijs{font-family:var(--kop);font-size:var(--t-2xl);color:var(--oxide);line-height:1}
+.diner-prijs small{font-family:var(--tekst);font-size:var(--t-s);color:var(--grijs)}
+.contact-groot{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:var(--t-l)}
+@media (max-width:760px){.dieet{grid-template-columns:1fr;padding:24px}.inbegrepen{padding:24px}}
+
+/* knoppen die nog de oude naam hebben */
+.kies-knop{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 18px;border-radius:4px;border:2px solid var(--oxide);background:var(--wit);color:var(--oxide);font:600 var(--t-s)/1.2 var(--tekst);text-decoration:none;cursor:pointer}
+.kies-knop:hover{background:var(--heide)}
+.verstuur{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 22px;border-radius:4px;border:2px solid var(--oxide);background:var(--oxide);color:var(--wit);font:600 var(--t-s)/1.2 var(--tekst);text-decoration:none;cursor:pointer}
+.verstuur:hover{background:var(--oxide-donker);border-color:var(--oxide-donker)}
+.verstuur:disabled{opacity:.6;cursor:progress}
+
+/* combinaties */
+.combis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:32px 48px}
+.combi{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--lijn);padding-top:16px}
+.combi h3{font-size:1.375rem}
+.combi p{color:var(--grijs)}
+.combi-prijs{font-weight:700;color:var(--oxide)!important;font-size:var(--t-l)}
+.combi .kies-knop{align-self:flex-start;margin-top:4px}
+
+/* kamers, keuzes, kaarten met tekst */
+.kamers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:32px 48px}
+.kamer{border-top:1px solid var(--lijn);padding-top:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.kamer h3{font-size:1.375rem}
+.kamer>p{color:var(--grijs)}
+.kamer .kies-knop{align-self:flex-start;margin-top:auto}
+.fotoduo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.fotoduo figure{margin:0}
+.fotoduo img{aspect-ratio:16/10;object-fit:cover;width:100%}
+
+/* seizoensarrangementen */
+.seizoenen{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:32px}
+.seizoen{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--lijn);padding-top:16px}
+.seizoen.nu{border-top:3px solid var(--rood);padding-top:14px}
+.seizoen-top{min-height:0}
+.nu-tag{font-size:var(--t-xs);font-weight:700;color:var(--rood)}
+.seizoen h3{font-size:1.375rem}
+.periode{font-weight:600;font-size:var(--t-s)}
+.seizoen>p:not(.periode):not(.seizoen-prijs){color:var(--grijs);font-size:var(--t-s)}
+.seizoen-prijs{font-weight:700;color:var(--oxide);margin-top:auto;padding-top:4px}
+.seizoen-prijs small{font-weight:400;color:var(--grijs);font-size:var(--t-xs)}
+.seizoen .kies-knop{align-self:flex-start}
+
+/* kerst */
+.kerst{background:var(--oxide);color:var(--wit);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px 48px;align-items:center;padding:40px;scroll-margin-top:24px}
+.kerst h2{color:var(--wit);font-size:clamp(2rem,4vw,2.75rem)}
+.kerst-inhoud{display:flex;flex-direction:column;gap:14px}
+.kerst-lead{color:#F2E4E1;font-size:var(--t-l);line-height:1.45}
+.kerst-lijst{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:6px 20px;color:#F2E4E1}
+.kerst-lijst li::before{content:"";display:inline-block;width:10px;height:6px;border-left:2px solid #F2E4E1;border-bottom:2px solid #F2E4E1;transform:rotate(-45deg) translateY(-3px);margin-right:10px}
+.kerst-boek{display:flex;flex-direction:column;gap:10px}
+.kerst-prijs{display:flex;flex-direction:column}
+.kerst-prijs small{color:#F2E4E1;font-size:var(--t-s)}
+.kerst-prijs b{font-family:var(--kop);font-weight:400;font-size:3rem;line-height:1.05}
+.kerst-knop{display:flex;flex-direction:column;padding:12px 16px;border-radius:4px;background:var(--wit);color:var(--oxide);text-decoration:none;font-weight:700}
+.kerst-knop small{font-weight:400;color:var(--grijs);font-size:var(--t-xs)}
+.kerst-knop.alt{background:transparent;color:var(--wit);border:2px solid rgba(255,255,255,.6)}
+.kerst-knop.alt small{color:#F2E4E1}
+.kerst-anders{color:var(--wit);font-weight:600;font-size:var(--t-s)}
+.kerst-anders:hover{color:var(--wit)}
+@media (max-width:860px){.kerst{grid-template-columns:1fr;padding:28px 20px}}
+
+/* boekbalk uit de oude opbouw */
+.boeken{display:flex;flex-direction:column;gap:12px;scroll-margin-top:24px}
+.boekbalk-kop p{color:var(--grijs);margin-top:4px}
+.boek-knop{min-height:48px}
+
+/* praktische gegevens */
+.praktisch h2{margin-bottom:16px}
+.praktisch dl{margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));column-gap:48px}
+.praktisch dl div{display:grid;grid-template-columns:9em 1fr;gap:12px;padding-block:12px;border-bottom:1px solid var(--lijn)}
+.praktisch dt{font-weight:700;font-size:var(--t-s)}
+.praktisch dd{margin:0}
+@media (max-width:480px){.praktisch dl div{grid-template-columns:1fr;gap:2px}}
+
+/* vragen en uitklappers */
+.faq{display:flex;flex-direction:column;max-width:48em}
+.faq details,.meer{border-bottom:1px solid var(--lijn)}
+.faq details:first-child{border-top:1px solid var(--lijn)}
+.faq summary{color:var(--inkt);font-size:var(--t-m);padding-block:14px}
+.faq summary::before{color:var(--oxide)}
+.faq p,.meer p{padding:0 0 16px 32px;color:var(--grijs)}
+
+/* ---------- aanvraagformulier ---------- */
+.aanvraag-blok{background:var(--heide);padding:40px;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px;align-items:start;scroll-margin-top:24px}
+.aanvraag-kop{display:flex;flex-direction:column;gap:16px;position:sticky;top:72px}
+.aanvraag-kop p{color:var(--grijs)}
+.stappen{margin:0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:14px}
+.stappen li{counter-increment:s;display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start}
+.stappen li::before{content:counter(s);font-family:var(--kop);font-size:1.75rem;line-height:1;color:var(--oxide)}
+.stappen b{display:block}
+.aanvraag-kop .contact{color:var(--inkt)}
+.aanvraag-kop .contact span{font-weight:700}
+.formulier{display:flex;flex-direction:column;gap:20px;min-width:0}
+.veld-rij{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.veld small,.label small{font-weight:400;color:var(--grijs)}
+.formulier input[type=text],.formulier input[type=tel],.formulier input[type=email],.formulier input[type=date],.formulier input[type=number],.formulier select,.formulier textarea{font:inherit;font-size:var(--t-s);color:var(--inkt);background:var(--wit);border:1px solid #CFC6C0;border-radius:4px;padding:11px 12px;width:100%;min-height:48px}
+.formulier textarea{resize:vertical}
+.formulier [aria-invalid=true]{border:2px solid var(--fout)}
+.opties{display:flex;flex-direction:column;gap:6px;max-height:360px;overflow-y:auto;padding:6px 10px;border:1px solid #CFC6C0;border-radius:4px;background:var(--wit)}
+.optgroep{border:0;margin:0;padding:6px 0}
+.optgroep legend{font-weight:700;font-size:var(--t-s);padding:0 0 4px}
+.opt{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:6px 4px;cursor:pointer;border-radius:4px}
+.opt:hover{background:var(--heide)}
+.opt input,.chip input{accent-color:var(--oxide);width:20px;height:20px;margin:0}
+.opt-prijs{color:var(--grijs);font-size:var(--t-s);font-variant-numeric:tabular-nums}
+.opt:has(input:checked) .opt-naam{font-weight:600}
+.totaal{font-variant-numeric:tabular-nums;font-size:var(--t-s);padding:10px 0;color:var(--inkt)}
+.totaal b{color:var(--oxide)}
+.chips{display:flex;flex-wrap:wrap;gap:8px 20px}
+.chip{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:var(--t-s)}
+.fout{color:var(--fout);font-weight:600;font-size:var(--t-s)}
+.formulier .klein{text-align:left}
+.bedankt{display:flex;flex-direction:column;gap:12px;padding:24px;background:var(--wit);border-top:4px solid var(--goed)}
+.bedankt h3{color:var(--goed)}
+.bedankt .kies-knop{align-self:flex-start}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:860px){.aanvraag-blok{grid-template-columns:1fr;padding:24px}.aanvraag-kop{position:static}}
+@media (max-width:520px){.veld-rij{grid-template-columns:1fr}}
+
+.kopieer{user-select:all;font-variant-numeric:tabular-nums}
+
+.prijslijst.twee{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:22px 56px}
+.dieet:has(>:only-child){grid-template-columns:1fr}
