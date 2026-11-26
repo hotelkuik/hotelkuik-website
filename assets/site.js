@@ -170,44 +170,18 @@
 })();
 
 (function(){
-  // Dronefilm in de kop van de homepage.
-  var held=document.querySelector('[data-video]');
-  if(!held) return;
-  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // De film staat al in de pagina. Hier alleen verfijnen:
+  // scherpere versie op grote schermen, en weghalen bij databesparing of minder beweging.
+  var v=document.querySelector('video[data-groot]');
+  if(!v) return;
   var net=navigator.connection||{};
-  if(net.saveData) return;
-  if(net.effectiveType==='slow-2g'||net.effectiveType==='2g') return;
-  var klein=innerWidth<=760||net.effectiveType==='3g';
-  var bron=klein?held.dataset.videoKlein:held.dataset.video;
-  if(!bron) return;
-  var foto=held.querySelector('img.held-media');
-
-  var v=document.createElement('video');
-  v.className='held-media film';
-  v.muted=true; v.defaultMuted=true; v.setAttribute('muted','');
-  v.loop=true; v.setAttribute('loop','');
-  v.autoplay=true; v.setAttribute('autoplay','');
-  v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
-  v.setAttribute('aria-hidden','true'); v.setAttribute('tabindex','-1');
-  v.preload='auto';
-  if(foto&&foto.currentSrc) v.poster=foto.currentSrc;
-  v.src=bron;
-
-  function toon(){ if(v.readyState>=2) v.classList.add('aan'); }
-  ['playing','canplay','loadeddata','timeupdate'].forEach(function(e){v.addEventListener(e,toon);});
-  v.addEventListener('error',function(){v.remove();});
-
-  held.insertBefore(v,held.firstChild);
-
-  function start(){
-    var p=v.play();
-    if(p&&p.then) p.then(toon).catch(function(){});
-  }
+  var uit=(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)
+        || net.saveData || net.effectiveType==='2g' || net.effectiveType==='slow-2g';
+  if(uit){ v.remove(); return; }
+  if(innerWidth>760 && net.effectiveType!=='3g'){ v.src=v.dataset.groot; v.load(); }
+  function start(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
   start();
-  // Houdt de browser het afspelen tegen (bijvoorbeeld bij energiebesparing),
-  // dan start de film zodra de bezoeker de pagina aanraakt of scrolt.
   ['pointerdown','touchstart','scroll','keydown'].forEach(function(e){
     addEventListener(e,function h(){ if(v.paused) start(); removeEventListener(e,h); },{passive:true});
   });
-  document.addEventListener('visibilitychange',function(){ if(!document.hidden&&v.paused) start(); });
 })();
