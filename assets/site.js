@@ -170,21 +170,44 @@
 })();
 
 (function(){
-  // Dronefilm op de homepage: alleen laden als de bezoeker beweging wil en niet op databesparing staat.
+  // Dronefilm in de kop van de homepage.
   var held=document.querySelector('[data-video]');
   if(!held) return;
   if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var verb=navigator.connection||{};
-  if(verb.saveData) return;
-  if(verb.effectiveType && /(^|-)2g$/.test(verb.effectiveType)) return;
-  var bron=(innerWidth<=760||verb.effectiveType==='3g') ? held.dataset.videoKlein : held.dataset.video;
+  var net=navigator.connection||{};
+  if(net.saveData) return;
+  if(net.effectiveType==='slow-2g'||net.effectiveType==='2g') return;
+  var klein=innerWidth<=760||net.effectiveType==='3g';
+  var bron=klein?held.dataset.videoKlein:held.dataset.video;
   if(!bron) return;
+  var foto=held.querySelector('img.held-media');
+
   var v=document.createElement('video');
-  v.className='held-media film'; v.muted=true; v.defaultMuted=true; v.loop=true; v.autoplay=true;
-  v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('aria-hidden','true');
-  v.setAttribute('tabindex','-1'); v.preload='auto'; v.src=bron;
-  v.addEventListener('playing',function(){v.classList.add('aan');},{once:true});
-  v.addEventListener('error',function(){v.remove();},{once:true});
+  v.className='held-media film';
+  v.muted=true; v.defaultMuted=true; v.setAttribute('muted','');
+  v.loop=true; v.setAttribute('loop','');
+  v.autoplay=true; v.setAttribute('autoplay','');
+  v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
+  v.setAttribute('aria-hidden','true'); v.setAttribute('tabindex','-1');
+  v.preload='auto';
+  if(foto&&foto.currentSrc) v.poster=foto.currentSrc;
+  v.src=bron;
+
+  function toon(){ if(v.readyState>=2) v.classList.add('aan'); }
+  ['playing','canplay','loadeddata','timeupdate'].forEach(function(e){v.addEventListener(e,toon);});
+  v.addEventListener('error',function(){v.remove();});
+
   held.insertBefore(v,held.firstChild);
-  var p=v.play(); if(p&&p.catch) p.catch(function(){v.remove();});
+
+  function start(){
+    var p=v.play();
+    if(p&&p.then) p.then(toon).catch(function(){});
+  }
+  start();
+  // Houdt de browser het afspelen tegen (bijvoorbeeld bij energiebesparing),
+  // dan start de film zodra de bezoeker de pagina aanraakt of scrolt.
+  ['pointerdown','touchstart','scroll','keydown'].forEach(function(e){
+    addEventListener(e,function h(){ if(v.paused) start(); removeEventListener(e,h); },{passive:true});
+  });
+  document.addEventListener('visibilitychange',function(){ if(!document.hidden&&v.paused) start(); });
 })();
