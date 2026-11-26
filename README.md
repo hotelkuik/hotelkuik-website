@@ -31,6 +31,10 @@ De website van Hotel Kuik, Brink 15, Ruinen. Aanpassingen worden gemaakt via Cla
 
 De boekbalk opent de boekingsmodule van Smarthotel met de gekozen datums en personen.
 
-## Dronebeelden op de homepage
+## Dronebeelden
 
-Zet het filmpje als `assets/video/drone.mp4` (H.264, zonder geluid, liefst onder 8 MB) en zet in `index.html` de `<video>` uit de opmerking direct onder de `<img class="held-media">`. Bezoekers die minder beweging willen zien, krijgen automatisch de foto.
+De kop van de homepage speelt `assets/video/brink-1080.mp4`: een vlucht van de Mariakerk naar het hotel, zonder geluid en met een naadloze lus van 13 seconden. Telefoons krijgen `brink-540.mp4` (1,4 MB).
+
+Het script in `assets/site.js` laadt de film alleen als de bezoeker beweging wil zien en niet op databesparing staat. Anders blijft de foto `assets/img/brink-1400.webp` staan, die precies het eerste beeld van de film is.
+
+Een andere film erin zetten: encodeer hem op dezelfde manier en vervang de twee bestanden in `assets/video/`. De poster vervang je door het eerste beeld van de nieuwe film.

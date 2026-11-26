@@ -168,3 +168,23 @@
     });
   });
 })();
+
+(function(){
+  // Dronefilm op de homepage: alleen laden als de bezoeker beweging wil en niet op databesparing staat.
+  var held=document.querySelector('[data-video]');
+  if(!held) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var verb=navigator.connection||{};
+  if(verb.saveData) return;
+  if(verb.effectiveType && /(^|-)2g$/.test(verb.effectiveType)) return;
+  var bron=(innerWidth<=760||verb.effectiveType==='3g') ? held.dataset.videoKlein : held.dataset.video;
+  if(!bron) return;
+  var v=document.createElement('video');
+  v.className='held-media film'; v.muted=true; v.defaultMuted=true; v.loop=true; v.autoplay=true;
+  v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('aria-hidden','true');
+  v.setAttribute('tabindex','-1'); v.preload='auto'; v.src=bron;
+  v.addEventListener('playing',function(){v.classList.add('aan');},{once:true});
+  v.addEventListener('error',function(){v.remove();},{once:true});
+  held.insertBefore(v,held.firstChild);
+  var p=v.play(); if(p&&p.catch) p.catch(function(){v.remove();});
+})();

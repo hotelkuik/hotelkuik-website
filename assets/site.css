@@ -249,3 +249,8 @@ details.inhoud .lijst{display:flex;flex-direction:column;gap:14px;padding-bottom
 .gasten-citaat p{max-width:none}
 .gasten-citaat footer{font-family:var(--tekst);font-size:var(--t-s);color:var(--grijs);margin-top:12px}
 @media (max-width:860px){.gasten{grid-template-columns:1fr}.gasten-citaat{font-size:1.375rem}}
+
+/* dronefilm in de kop van de homepage */
+.held .film{opacity:0;transition:opacity .9s ease}
+.held .film.aan{opacity:1}
+@media (prefers-reduced-motion:reduce){.held .film{display:none}}
